@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import styles from "./FilterButton.css";
+import styles from "./style.css";
 
 /*
  * FilterButton

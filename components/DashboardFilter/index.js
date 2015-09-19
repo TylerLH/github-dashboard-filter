@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./DashboardFilter.css";
-import FilterButton from "./FilterButton";
+import styles from "./style.css";
+import FilterButton from "../FilterButton";
 
 const EVENTS = {
     commits: {
