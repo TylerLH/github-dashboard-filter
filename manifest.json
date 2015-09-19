@@ -1,0 +1,15 @@
+{
+    "name": "Github Dashboard Filter",
+    "short_name": "dashboard",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "A simple filter for Github dashboards",
+    "homepage_url": "https://github.com/tylerlh/dashboard_filter",
+    "content_scripts": [
+        {
+            "matches": ["https://github.com/", "https://github.com/orgs/*/dashboard"],
+            "css": ["app.css"],
+            "js": ["app.js"]
+        }
+    ]
+}

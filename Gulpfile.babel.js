@@ -29,6 +29,16 @@ gulp.task('js', bundle);
 b.on('update', bundle); // on any dep update, runs the bundler
 b.on('log', gutil.log); // output build logs to terminal
 
+gulp.task('manifest', function() {
+    gulp
+        .src('manifest.json')
+        .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('dev', ['js'], function() {
+    gulp.watch('manifest.json', ['manifest']);
+});
+
 function bundle() {
   return b.bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
