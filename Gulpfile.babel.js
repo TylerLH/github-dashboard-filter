@@ -35,9 +35,11 @@ gulp.task('manifest', function() {
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('dev', ['js'], function() {
+gulp.task('dev', ['default'], function() {
     gulp.watch('manifest.json', ['manifest']);
 });
+
+gulp.task('default', ['js', 'manifest'])
 
 function bundle() {
   return b.bundle()

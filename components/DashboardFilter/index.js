@@ -4,25 +4,33 @@ import FilterButton from "../FilterButton";
 
 const EVENTS = {
     commits: {
-        iconClass: "git-commit"
+        iconClass: "git-commit",
+        itemsToHide: [".push"]
     },
     discussions: {
-        iconClass: "comment-discussion"
+        iconClass: "comment-discussion",
+        itemsToHide: [".issues_comment"]
     },
     pullRequests: {
-        iconClass: "git-pull-request"
+        iconClass: "git-pull-request",
+        itemsToHide: [".pull_request"]
     },
     stars: {
-        iconClass: "star"
+        iconClass: "star",
+        itemsToHide: [".watch_started"]
     },
     issues: {
-        iconClass: "issue-opened"
+        iconClass: "issue-opened",
+        itemsToHide: [".issues_opened"]
     }
 }
 
 class DashboardFilter extends React.Component {
     handleToggle(eventType) {
-        console.log(`Toggle filter: ${eventType}`);
+      let event = EVENTS[eventType];
+      let els = document.querySelectorAll(`.alert${event.itemsToHide.join('')}`);
+      els = Array.prototype.slice.call(els);
+      els.forEach(el => el.parentNode.removeChild(el));
     }
 
     render() {
